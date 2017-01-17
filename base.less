@@ -1,0 +1,40 @@
+//累加型递增
+@list: xs, s, m, l, xl;
+@coefficient: 1;
+@base: 5px;
+@t: top;
+@r: right;
+@l: left;
+@b: bottom;
+
+.make-padding(@list, @base, @coefficient, @dir) {
+  @n: length(@list);
+  
+  .loop-padding(@index) when(@index < @n + 1) {
+    @type: extract(@list,@index);
+    @dd: @@dir;
+
+    .p@{dir}@{type} {
+      padding-@{dd}: @base * @index;
+    }
+
+    .loop-padding(@index + 1);
+  }
+  .loop-padding(1);
+}
+
+//这里用4个来弄是为了让统一属性的css靠在一起
+
+/*padding-top*/
+.make-padding(@list, @base, @coefficient, t);
+
+/*padding-right*/
+
+.make-padding(@list, @base, @coefficient, r);
+/*padding-bottom*/
+
+
+.make-padding(@list, @base, @coefficient, b);
+/*padding-left*/
+
+.make-padding(@list, @base, @coefficient, l);
