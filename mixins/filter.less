@@ -1,0 +1,8 @@
+.blur(@num) {
+  -webkit-filter: blur(@num * 1px);
+  -moz-filter: blur(@num * 1px);
+  -ms-filter: blur(@num * 1px);
+  -o-filter: blur(@num * 1px);
+  filter: blur(@num * 1px);
+  filter: ~"progid:DXImageTransform.Microsoft.Blur(pixelRadius= '@{num}',MakeShadow=false)";   /*  IE6~IE9  */
+}
